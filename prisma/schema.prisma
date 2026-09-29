@@ -1,0 +1,61 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Tutor {
+  id           Int        @id @default(autoincrement())
+  nama         String
+  noHp         String?
+  tarifPerSesi Int        @default(0)
+  schedules    Schedule[]
+}
+
+model Student {
+  id       Int        @id @default(autoincrement())
+  nama     String
+  noHpOrtu String?
+  jenjang  String?
+  schedules Schedule[]
+}
+
+model Subject {
+  id        Int        @id @default(autoincrement())
+  nama      String     @unique
+  schedules Schedule[]
+}
+
+model Schedule {
+  id             Int       @id @default(autoincrement())
+  tutorId        Int
+  studentId      Int
+  subjectId      Int
+  hari           String
+  jamMulai       String
+  jamSelesai     String
+  tanggalMulai   String
+  tanggalSelesai String
+  catatan        String?
+  tutor          Tutor     @relation(fields: [tutorId], references: [id])
+  student        Student   @relation(fields: [studentId], references: [id])
+  subject        Subject   @relation(fields: [subjectId], references: [id])
+  sessions       Session[]
+}
+
+model Session {
+  id         Int      @id @default(autoincrement())
+  scheduleId Int
+  tanggal    String
+  jamMulai   String
+  jamSelesai String
+  status     String   @default("terjadwal")
+  materi     String?
+  catatan    String?
+  schedule   Schedule @relation(fields: [scheduleId], references: [id])
+
+  @@unique([scheduleId, tanggal])
+}

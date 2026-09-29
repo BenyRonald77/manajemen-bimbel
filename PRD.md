@@ -12,8 +12,8 @@ bulan secara otomatis, dan mencetak rapor perkembangan untuk orang tua.
 
 ## Stack
 
-- Backend: Python + Flask, SQLite (stdlib `sqlite3`)
-- Frontend: HTML + vanilla JS + CSS murni, tanpa build step
+- Backend: TypeScript + Next.js 14 (App Router, API routes), Prisma 5 + SQLite
+- Frontend: React + Tailwind CSS, halaman client-side tanpa build manual
 
 ## Model Data
 
@@ -55,7 +55,7 @@ bulan secara otomatis, dan mencetak rapor perkembangan untuk orang tua.
 - [ ] Presensi per sesi tercatat dengan materi
 - [ ] Honor = tarif × sesi hadir, benar per bulan
 - [ ] Rapor per siswa bisa dibuka/dicetak
-- [ ] `pip install -r requirements.txt && python app.py` langsung jalan
+- [ ] `npm install && npx prisma db push && npm run seed && npm run dev` langsung jalan
 
 ## Non-tujuan
 
