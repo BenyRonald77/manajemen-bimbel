@@ -2,6 +2,7 @@
 from flask import Flask
 
 from bimbel.api import api_bp
+from bimbel.attendance import attendance_bp
 from bimbel.db import init_db
 from bimbel.schedule import schedule_bp
 
@@ -11,6 +12,7 @@ def create_app() -> Flask:
     init_db()
     app.register_blueprint(api_bp)
     app.register_blueprint(schedule_bp)
+    app.register_blueprint(attendance_bp)
 
     @app.get("/")
     def index():
