@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}Siswa — BimbelKu{% endblock %}
+{% block content %}
+<h1>Siswa</h1>
+<div class="card">
+  <h3>Tambah siswa</h3>
+  <div class="row">
+    <input id="s-nama" placeholder="Nama">
+    <input id="s-hp" placeholder="No. HP orang tua">
+    <select id="s-jenjang"><option>SD</option><option>SMP</option><option>SMA</option></select>
+    <button id="s-tambah">Tambah</button>
+  </div>
+</div>
+<table id="tbl"><thead><tr>
+  <th>Nama</th><th>Jenjang</th><th>No. HP Ortu</th><th></th>
+</tr></thead><tbody></tbody></table>
+<div class="card">
+  <h3>Rapor perkembangan</h3>
+  <div class="row">
+    <select id="r-siswa"></select>
+    <input type="date" id="r-dari">
+    <input type="date" id="r-sampai">
+    <button id="r-buka">Buka rapor</button>
+  </div>
+</div>
+{% endblock %}
+{% block script %}<script src="{{ url_for('static', filename='js/siswa.js') }}"></script>{% endblock %}

@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Dashboard — BimbelKu{% endblock %}
+{% block content %}
+<h1>Jadwal Hari Ini <small id="tgl"></small></h1>
+<div class="cards">
+  <div class="stat"><div class="num" id="s-total">0</div><div>Sesi hari ini</div></div>
+  <div class="stat"><div class="num" id="s-hadir">0</div><div>Hadir</div></div>
+  <div class="stat"><div class="num" id="s-todo">0</div><div>Belum presensi</div></div>
+</div>
+<table id="tbl"><thead><tr>
+  <th>Jam</th><th>Mapel</th><th>Tutor</th><th>Siswa</th><th>Status</th><th></th>
+</tr></thead><tbody></tbody></table>
+{% endblock %}
+{% block script %}<script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>{% endblock %}

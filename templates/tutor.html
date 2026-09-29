@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}Tutor — BimbelKu{% endblock %}
+{% block content %}
+<h1>Tutor & Honor</h1>
+<div class="card">
+  <h3>Tambah tutor</h3>
+  <div class="row">
+    <input id="t-nama" placeholder="Nama">
+    <input id="t-hp" placeholder="No. HP">
+    <input id="t-tarif" type="number" placeholder="Tarif per sesi (Rp)">
+    <button id="t-tambah">Tambah</button>
+  </div>
+</div>
+<div class="card row">
+  <label>Honor bulan: <input type="month" id="bulan"></label>
+  <button id="lihat">Lihat</button>
+  <b id="grand" style="margin-left:auto"></b>
+</div>
+<table id="tbl"><thead><tr>
+  <th>Tutor</th><th>Tarif/sesi</th><th>Sesi hadir</th><th>Total honor</th>
+</tr></thead><tbody></tbody></table>
+{% endblock %}
+{% block script %}<script src="{{ url_for('static', filename='js/tutor.js') }}"></script>{% endblock %}

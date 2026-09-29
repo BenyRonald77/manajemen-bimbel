@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}Jadwal — BimbelKu{% endblock %}
+{% block content %}
+<h1>Jadwal Mingguan</h1>
+<div class="card">
+  <h3>Tambah jadwal</h3>
+  <div class="grid">
+    <select id="f-tutor"></select>
+    <select id="f-siswa"></select>
+    <select id="f-mapel"></select>
+    <select id="f-hari">
+      <option>Senin</option><option>Selasa</option><option>Rabu</option>
+      <option>Kamis</option><option>Jumat</option><option>Sabtu</option><option>Minggu</option>
+    </select>
+    <input id="f-mulai" type="time" value="16:00">
+    <input id="f-selesai" type="time" value="17:30">
+    <input id="f-dari" type="date">
+    <input id="f-sampai" type="date">
+  </div>
+  <div class="row" style="margin-top:8px">
+    <button id="f-tambah">Simpan jadwal</button>
+    <button id="f-generate" class="ghost">Generate sesi</button>
+  </div>
+  <p id="f-msg"></p>
+</div>
+<table id="tbl"><thead><tr>
+  <th>Hari</th><th>Jam</th><th>Mapel</th><th>Tutor</th><th>Siswa</th><th>Periode</th><th></th>
+</tr></thead><tbody></tbody></table>
+{% endblock %}
+{% block script %}<script src="{{ url_for('static', filename='js/jadwal.js') }}"></script>{% endblock %}
